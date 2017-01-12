@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Page</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+	body{
+		padding-top: 55px;
+	}
+	.navbar-default{
+		background-color: #01579B;
+		border: none;
+	}
+	.navbar-default .navbar-brand{
+		color: #eee;
+	}
+	.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+		color: #fff;
+	}
+	.navbar-default .navbar-nav>li>a{
+		color: #eee;
+	}
+	.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+		color: #fff;
+	}
+	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+		background-color: #fff;
+	}
+	.container .jumbotron{
+		min-height: 85vh;
+	}
+	a:hover{
+		text-decoration: none;
+	}
+	#home .row:not(.ext) .jumbotron{
+		padding-top: 22vh;
+	}
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="page.html">Page</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li role="presentation" class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+					<li role="presentation"><a href="#faq" role="tab" data-toggle="tab">FAQ</a></li>
+					<li role="presentation"><a href="#about" role="tab" data-toggle="tab">About US</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane fade in active" id="home">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="jumbotron text-center">
+								<h1>Why Invest here?</h1>
+								<a href="#lagal" class="btn btn-primary btn-lg">Invest Now</a>
+							</div>
+						</div>
+					</div>
+					<div class="row ext hide">
+						<div class="col-lg-12">
+							<div id="lagal" class="jumbotron text-center">
+								<h1>Lagal Documents</h1>
+								<hr style="border-color:#444;">
+								<h2>Comming Soon</h2>
+								<form class="form-horizontal">
+									<div class="form-group">
+										<div class="col-sm-12">
+											<div class="checkbox">
+												<label class="control-label">
+													<input type="checkbox"> I accept
+												</label>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="jumbotron text-center">
+								<h1>Done</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane fade" id="faq">
+				<div class="container">
+					<div class="jumbotron text-center">
+						<div class="row">
+							<div class="col-xs-12">
+								<h1>FAQ</h1>
+							</div>
+						</div>
+						<hr style="border-color:#444;">
+						<div class="row">
+							<div class="col-xs-12">
+								<h2>Comming Soon</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="jumbotron">
+						<div class="container text-center">
+							<h1>Email</h1>
+							<hr style="border-color:#444;">
+							<h2>
+								<a href="mailto:devzeo@gmail.com?body=custom+text" target="_blank">devzeo@gmail.com</a>
+							</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane fade" id="about">
+				<div class="container">
+					<div class="jumbotron text-center">
+						<div class="row">
+							<div class="col-xs-12">
+								<h1>About Us</h1>
+							</div>
+						</div>
+						<hr style="border-color:#444;">
+						<div class="row">
+							<div class="col-xs-12">
+								<h2>Comming Soon</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+	$(window).on('load', function(){
+		if (document.location.hash) {
+			$('nav a[href="' + document.location.hash + '"]').click();
+			history.replaceState({}, document.title, location.href.substr(0, location.href.length-location.hash.length));
+		}
+	});
+	$(document).ready(function(){
+		$('.btn-primary').click(function(e){
+			e.preventDefault();
+			if($('.ext').hasClass('hide')){
+				$('.ext').hide().removeClass('hide').slideDown();
+			}
+			$('html, body').animate({
+				scrollTop: $($(this).attr('href')).offset().top - 65
+			}, 1000);
+		});
+	});
+</script>
+</body>
+</html>
